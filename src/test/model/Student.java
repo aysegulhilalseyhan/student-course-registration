@@ -1,31 +1,29 @@
 package model;
 
-import interfaces.Registrable;
-import java.util.HashSet;
-import java.util.Set;
+import org.junit.jupiter.api.Test;
 
-public class Student implements Registrable {
+import static org.junit.jupiter.api.Assertions.*;
 
-    protected String id;
-    protected String name;
-    protected Set<Course> registeredCourses = new HashSet<>();
+class StudentTest {
 
-    public Student(String id, String name) {
-        this.id = id;
-        this.name = name;
+    @Test
+    void register_shouldPreventDuplicates() {
+        Student s = new Student("S1", "Aysegul");
+        Course c = new Course("CS101", "Computer Science", 5);
+
+        assertTrue(s.register(c));
+        assertFalse(s.register(c)); // duplicate must be prevented
+        assertEquals(1, s.getRegisteredCourses().size());
     }
 
-    @Override
-    public boolean register(Course course) {
-        return registeredCourses.add(course); 
-    }
+    @Test
+    void drop_shouldRemoveCourse() {
+        Student s = new Student("S1", "Aysegul");
+        Course c = new Course("CS101", "Computer Science", 5);
 
-    @Override
-    public boolean drop(Course course) {
-        return registeredCourses.remove(course);
-    }
-
-    public double calculateTuition() {
-        return registeredCourses.size() * 1000;
+        s.register(c);
+        assertTrue(s.drop(c));
+        assertEquals(0, s.getRegisteredCourses().size());
     }
 }
+

@@ -1,31 +1,26 @@
 package service;
 
 import model.Course;
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
-public class CourseCatalog {
+import static org.junit.jupiter.api.Assertions.*;
 
-    private List<Course> courses = new ArrayList<>();
+class CourseCatalogTest {
 
-    public void addCourse(Course course) {
-        courses.add(course);
+    @Test
+    void findByCode_shouldReturnCourse() {
+        CourseCatalog catalog = new CourseCatalog();
+        catalog.addCourse(new Course("CS101", "Computer Science", 5));
+
+        Course found = catalog.findByCode("CS101");
+
+        assertNotNull(found);
+        assertEquals("CS101", found.getCode());
     }
 
-    public void removeCourse(Course course) {
-        courses.remove(course);
-    }
-
-    public Course findByCode(String code) {
-        for (Course c : courses) {
-            if (c.getCode().equals(code)) {
-                return c;
-            }
-        }
-        return null;
-    }
-
-    public List<Course> getCourses() {
-        return courses;
+    @Test
+    void findByCode_shouldReturnNullWhenMissing() {
+        CourseCatalog catalog = new CourseCatalog();
+        assertNull(catalog.findByCode("NOPE"));
     }
 }
