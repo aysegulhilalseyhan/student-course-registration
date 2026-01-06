@@ -30,7 +30,7 @@ Expected test result:
 - Tests run: 5
 - Failures: 0
 - Errors: 0
-- Skips:0
+- Skipped:0
 - BUILD SUCCESS
 
 ## Unit Test Results
