@@ -29,3 +29,4 @@ public class Student implements Registrable {
         return registeredCourses.size() * 1000;
     }
 }
+
