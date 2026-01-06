@@ -12,7 +12,7 @@ class StudentTest {
         Course c = new Course("CS101", "Computer Science", 5);
 
         assertTrue(s.register(c));
-        assertFalse(s.register(c)); // duplicate must be prevented
+        assertFalse(s.register(c)); 
         assertEquals(1, s.getRegisteredCourses().size());
     }
 
