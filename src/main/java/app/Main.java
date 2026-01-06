@@ -12,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Catalog (örnek dersler)
+        
         CourseCatalog catalog = new CourseCatalog();
         catalog.addCourse(new Course("CENL405", "Computer Network & Security", 5));
         catalog.addCourse(new Course("EENL210", "Signals and Systems", 4));
         catalog.addCourse(new Course("OOP101", "Object Oriented Programming", 6));
 
-        // Öğrenci seçimi
+       
         Student student = createStudent(sc);
 
         boolean running = true;
