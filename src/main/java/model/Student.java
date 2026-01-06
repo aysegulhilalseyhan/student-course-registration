@@ -28,5 +28,9 @@ public class Student implements Registrable {
     public double calculateTuition() {
         return registeredCourses.size() * 1000;
     }
+    public Set<Course> getRegisteredCourses() {
+    return registeredCourses;
+}
+
 }
 
