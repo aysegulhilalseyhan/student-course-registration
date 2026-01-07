@@ -27,7 +27,7 @@ To run unit tests:
 mvn test
 
 Expected test result:
-- Tests run: 5
+- Tests run: 14
 - Failures: 0
 - Errors: 0
 - Skipped:0
